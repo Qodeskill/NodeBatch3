@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>States</title>
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.2em;
+        }
+
+        .state
+        {
+            /* background-image: linear-gradient(to right, #db1e1e 10%, #33be46 30%, #356eb9 50%); */
+            background-image: radial-gradient(circle, #db1e1e 10%, #33be46 30%, #356eb9 50%);
+            /* margin: 25px 10px 15px 40px; */
+            /* margin: 25px 10px 40px; */
+            margin: 25px 40px;
+
+            padding: 10px 20px 15px 30px;
+            width: 350px; /* content width: 350, right padding: 20, left padding: 30 */
+            height: 100px;
+            font-size: 22px;
+            
+            border: 8px solid #07bb52;
+            float: left;
+
+            border-radius: 6px 15px 20px 10px;
+            box-shadow: 10px 20px 10px 5px #16a8d4;
+            /* transition: background-color 2s, font-size 3s, transform 2s; */
+        }
+
+        @keyframes myanimation
+        {
+            0% { background-color: #6be09c; transform: rotate(0deg) scale(1); }
+            25% { background-color: #ff0000; transform: rotate(-90deg) scale(1.5); }
+            50% { background-color: #00ff00; transform: rotate(90deg) scale(1.5); }
+            75% { background-color: #0000ff; transform: rotate(0deg) scale(2); }
+            100% { background-color: #6be09c; transform: rotate(0deg) scale(1); }
+        }
+        
+        .state:active
+        {
+            background-color: #0a9142;
+            font-size: 40px;
+            /* transform: scale(1.3) rotate(90deg); */
+            /* transform: translate(20px, 30px); */
+            /* transform: skew(40deg); */
+            /* transform: rotate(40deg); */
+            /* transform: rotate3d(0.2, 1, 0.2, 180deg); */
+            /* transform: scale3d(0.5, 2, 0.5); */
+            animation: myanimation 10s;
+        }
+
+        #karnataka-state
+        {
+            /* outline: 6px dashed #082891;
+            outline-offset: 14px; */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>States of India</h1>
+
+    <div class="state">Andhra Pradesh</div>
+    <div class="state">Arunachal Pradesh</div>
+    <div class="state">Assam</div>
+    <div class="state">Bihar</div>
+    <div class="state">Chhattisgarh</div>
+    <div class="state">Goa</div>
+    <div class="state">Gujarat</div>
+    <div class="state">Haryana</div>
+    <div class="state">Himachal Pradesh</div>
+    <div class="state">Jharkhand</div>
+    <div class="state" id="karnataka-state">Karnataka</div>
+    <div class="state">Kerala</div>
+    <div class="state">Madhya Pradesh</div>
+    <div class="state">Maharashtra</div>
+    <div class="state">Manipur</div>
+    <div class="state">Meghalaya</div>
+    <div class="state">Mizoram</div>
+    <div class="state">Nagaland</div>
+    <div class="state">Odisha</div>
+    <div class="state">Punjab</div>
+    <div class="state">Rajasthan</div>
+    <div class="state">Sikkim</div>
+    <div class="state">Tamil Nadu</div>
+    <div class="state">Telangana</div>
+    <div class="state">Tripura</div>
+    <div class="state">Uttar Pradesh</div>
+    <div class="state">Uttarakhand</div>
+    <div class="state">West Bengal</div>
+
+</body>
+
+</html>
