@@ -1,7 +1,7 @@
 /*
     array
     *****
-        Homogeneous elements    
+
 
         collection of "elements" called as "array"
 
@@ -9,6 +9,20 @@
 
         []
 */
+let arr = [10, 20, "thirty", 40, " 50", 60, "70", 80, 90, 100];
+
+// console.log(typeof arr);
+// console.log(arr);
+// console.log(arr["0"]);
+// console.log(arr[3.0]);
+// console.log(arr[3.1]);
+// arr[3.5] = 45;
+// arr["A"] = 110;
+
+// console.log(arr[3.5]);
+// console.log(arr["A"]);
+console.log(arr[2][0]);
+// console.log(arr.length);
 
 // let arr = [10, 20, 30, 40, 50];
 // console.log(arr[0], arr[1], arr[2], arr[3], arr[4]);
@@ -71,7 +85,8 @@
 // console.log(arr);
 // The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
 //splice()
-let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+// let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+// arr.splice(-4, 3, 11, 12, 13);
 // arr.splice(4, 3);///start from 4 and delete 3 element
 // console.log(arr);
 // arr.splice(-2);
@@ -81,35 +96,44 @@ let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 // console.log(arr);
 // arr.splice(1, 1);
 // console.log(arr);
-// arr.splice(2, 0, 50, 60, 70);
+// arr.splice(2, 3, 11, 12, 13);
 // console.log(arr);
 // arr.splice(1, 0, 30);
 // console.log(arr);
-// arr.splice(0, 1, 10, 20);
+// arr.splice(0, 1, 11, 22);
 // console.log(arr);
 // arr.splice(9, 0, 100);
 // console.log(arr);
 // arr.splice(1);
+// console.log(arr.splice(1));
 // console.log(arr);
 
-let arr1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+// let arr1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 //10, 20, 30, 40, 50, 60, 70, 80, 90, 100
 //                       -4  -3   -2   -1
 // arr1.splice(-4, 2);
 // console.log(arr1);
 
-arr1.splice(-4, -2);
-console.log(arr1);
+// arr1.splice(-4, -2);
+// console.log(arr1);
 
-/*
-    //slice()
-    let arr = [10,20,30,40,50,60,70,80,90,100];
-    console.log( arr.slice(2,4) );                  
-    console.log( arr.slice(5,8) );                  
-    console.log( arr.slice(-10,-8) );               
-    console.log( arr.slice(-2) );                   
-*/
+//slice()
+
+// The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array.
+// The original array will not be modified.
+
+// let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+// console.log(arr.slice());
+// console.log(arr.slice(3));
+// console.log(arr.slice(-2));
+// console.log(arr.slice(3, -2));
+// console.log(arr.slice(3, -9));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(1, 5));
+// console.log(arr.slice(-10, 8));
+// console.log( arr.slice(-2) );
+// console.log(arr);
 
 /*
 // spread operator
