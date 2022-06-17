@@ -9,7 +9,7 @@
 
         []
 */
-let arr = [10, 20, "thirty", 40, " 50", 60, "70", 80, 90, 100];
+// let arr = [10, 20, "thirty", 40, " 50", 60, "70", 80, 90, 100];
 
 // console.log(typeof arr);
 // console.log(arr);
@@ -21,7 +21,7 @@ let arr = [10, 20, "thirty", 40, " 50", 60, "70", 80, 90, 100];
 
 // console.log(arr[3.5]);
 // console.log(arr["A"]);
-console.log(arr[2][0]);
+// console.log(arr[2][0]);
 // console.log(arr.length);
 
 // let arr = [10, 20, 30, 40, 50];
@@ -135,89 +135,99 @@ console.log(arr[2][0]);
 // console.log( arr.slice(-2) );
 // console.log(arr);
 
-/*
 // spread operator
 // concat
 // immutability
 //deep cloning
 // ...
+// spread operator ...
 
-//concat
-let arr1 = [10,20,30];
-let arr2 = [40,50,60];
-console.log( [...arr1,...arr2] );
+// let arr1 = [10, 20, 30];
+// let arr2 = [40, 50, 60];
+// console.log(arr1);
+// let newArr = [...arr2];
+// console.log(typeof newArr);
+// console.log(newArr);
 
+// //concat
+// let arr1 = [10, 20, 30];
+// let arr2 = [40, 50, 60];
+
+// console.log([...arr1, ...arr2]);
+// console.log([arr1, ...arr2]);
 
 //immutability
-let grand = ["5acrs"];
-let father = [...grand,"5acrs"];
-let child = [...father,"10acrs"];
-console.log(child);         
-
+// let grand = ["5acrs"];
+// let father = [...grand, "5acrs"];
+// let child = [...father, "10acrs"];
+// console.log(child);
 
 //deep cloning
-let c1 = [10,20,30];
-let xerox = [...c1];
-c1.push(40);
-xerox.push(50);[ 10, 20, 30, 50 ]
-console.log(c1);                        
-console.log(xerox);                     
+// let c1 = [10, 20, 30];
+// let xerox = [...c1];
+// c1.push(40);
+// xerox.push(50);
+// console.log(c1);
+// console.log(xerox);
 
+// let arr = [10, 20, 30, 40, 50, 60];
 
-let arr = [10,20,30,40,50,60];
-//[40,50,60,10,20,30]
+// let x = arr.slice(3);
+// let y = arr.slice(0, 3);
+// console.log([...x, ...y]);
 
-let x = arr.slice(3);
-let y = arr.slice(0,3);
-console.log( [...x,...y] );
-*/
-
-/*
 //findIndex()
-let arr = [10,20,30,40,50,60];
+let arr = [10, 20, 30, 40, 50, 60];
 console.log(
-    arr.findIndex((element,index)=>{
-        return element === 30;
-    })
-);           
+  arr.findIndex((element, index) => {
+    return element === 30;
+  })
+);
 
-console.log(
-    arr.findIndex((element,index)=>{
-        return element == 60;
-    })
-);          
+// console.log(
+//   arr.findIndex((element, index) => {
+//     return element == 60;
+//   })
+// );
 
-console.log(
-    arr.findIndex((element,index)=>{
-        return element === 100;
-    })
-);         
+// console.log(
+//   arr.findIndex((element, index) => {
+//     return element === 100;
+//   })
+// );
 
-arr.splice(arr.findIndex((element,index)=>{
-    return element == 20;
-}),1);
+// arr.splice(
+//   arr.findIndex((element, index) => {
+//     return element == 20;
+//   }),
+//   1
+// );
 
-console.log(arr);       
+// console.log(arr);
 
+// arr.splice(
+//   arr.findIndex((element, index) => {
+//     return element == 50;
+//   }),
+//   1
+// );
 
-arr.splice(arr.findIndex((element,index)=>{
-    return element == 50;
-}),1);
+// console.log(arr);
 
-console.log(arr);
-
-
-
-let arr1 = [{"cost":"100 INR"},
-            {"cost":"200 INR"},
-            {"cost":"300 $"},
-            {"cost":"400 INR"},
-            {"cost":"500 INR"}];
-arr1.splice(arr1.findIndex((element,index)=>{
-    return element.cost == "300 $";
-}),1);
-console.log( arr1 );
-*/
+// let arr1 = [
+//   { cost: "100 INR" },
+//   { cost: "200 INR" },
+//   { cost: "300 $" },
+//   { cost: "400 INR" },
+//   { cost: "500 INR" },
+// ];
+// arr1.splice(
+//   arr1.findIndex((element, index) => {
+//     return element.cost == "300 $";
+//   }),
+//   1
+// );
+// console.log(arr1);
 
 /*
     //map()
