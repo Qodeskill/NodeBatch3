@@ -9,3 +9,5 @@ console.log([] == 0); //true
 console.log([] == "0"); //false
 console.log([] == " "); //true
 console.log(false == " "); //true
+
+console.log({} == {});
