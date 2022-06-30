@@ -1,0 +1,57 @@
+1) Read
+
+2) Write
+
+3) Append
+
+4) Close
+
+5) Delete
+
+Read
+****
+
+1) readFile(-,-)
+
+2) readFileSync(-)
+
+
+open
+****
+
+1) open()
+
+2) openSync()
+
+
+Write
+*****
+
+1) writeFile()
+
+2) writeFileSync()
+
+
+Append
+******
+
+1) appendFile()
+
+2) appendFileSync()
+
+
+
+close
+*****
+1) close(-,-)
+
+2) closeSync(-)
+
+
+
+Delete
+******
+1) unlink(-,-)
+
+2) unlinkSync()
+
