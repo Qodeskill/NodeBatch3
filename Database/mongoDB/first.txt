@@ -1,0 +1,128 @@
+
+
+MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
+
+MongoDB --> nosql , document 
+        -->cassandra,hbase
+sql -> RDMS 
+
+
+MongoDB Structure:
+------------------
+-> MongoDB Physical database contains several logical databases.
+-> Each database contains several collections. Collection is something
+    like table in relational database.
+-> Each collection contains several documents. Document is something
+like record/row in relational database.
+
+SQL Terms 		MongoDB Terms
+-----------------------------------------------------------------------
+Database 		Database
+Table 			Collection
+Entity/Row 		Document
+Column 			Key / Field
+Table Join 		Embedded Documents
+Primary Key 	        Primary Key (Default key _id provided by mongodb itself)
+
+Data Formats in MongoDB:
+------------------------
+10kb json: {name:'skillqode'}--->BSON and that BSON will be stored
+4kb End user/Developer will provide data in json form.
+In MongoDB server data will be stored in BSON Form.
+
+Key Characteristics of MongoDB database:
+----------------------------------------
+1. Installation and setup is very easy.
+2. All information related to a document will be stored in a single place.
+ To retrieve data, it is not required to perform join operations and
+hence retrieval is very fast.
+3. Documents are independent of each other and no schema. Hence
+we can store unstructured data like videos, audio files etc
+4. We can perform oprations like editing existing document, deleting
+document and inserting new documents very easily.
+5. Retrieval data is in the form of json which can be understandable by
+any programming language without any conversion (interoperability)
+6. We can store very huge amount of data and hence scalability is
+more
+
+MongoDB Shell vs MongoDB Server:
+--------------------------------
+Once we installed MongoDB, we will get MongoDB Shell and MongoDB
+Server.hese are Javascript based applicatio
+Tns.
+MongoDB Server is responsible to store our data in database. --> mongod
+MongoDB Shell is responsible to manage Server.               --> mongo   
+
+
+mongod --dbpath "C:\data\db"
+
+Default Databases:
+------------------
+MongoDB Admin will use these default databases.
+> show dbs
+admin 0.000GB
+config 0.000GB
+local 0.000GB
+1. admin:
+---------
+admin database is used to store user authentication and authorization
+information like usernames,passwords,roles etc
+This database is used by administrators while creating,deleting and
+updating users and while assigning roles.
+
+2. config:
+----------
+To store configuration information of mongodb server.
+
+3. local:
+---------
+local database can be used by admin while performing replication
+process.
+
+db.version()
+db.help()
+db.showdbs
+use admin()
+
+How to create collection:
+-------------------------
+ db.crs
+{ "ok" : 1 }
+> show collections
+employees
+> db.getName()
+test
+
+> use newskill
+switched to db newskill
+
+Create collection
+---------------------------------
+db.createCollection("stud")
+
+show collections        
+----------------------------------
+
+Basic CRUD Operations in simple way:
+------------------------------------
+1. C--->Create|Insert document
+------------------------------
+How to insert document into the collection
+db.collection.insertOne()
+db.collection.insertMany()
+db.collection.insert()
+> db.stud.insertOne({sno:100,sname:"Sunny",fees:35000,course:"Node"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61efad80e88d73f5a4ca784f")
+}
+
+2. R--->Read / Retrieval Operation:
+------------------------------------
+db.collection.find() --->To get all documents present in the given
+collection
+db.collection.findOne() --->To get one document
+
+> db.stud.find()
+
+> db.employees.find().pretty()
