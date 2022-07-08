@@ -111,7 +111,13 @@ How to insert document into the collection
 db.collection.insertOne()
 db.collection.insertMany()
 db.collection.insert()
-> db.stud.insertOne({sno:100,sname:"Sunny",fees:35000,course:"Node"})
+>
+db.stud.insertOne({sno:111,sname:"Ram",fees:37500,course:"Node"})
+db.stud.insertOne({sno:112,sname:"Raj",fees:45000,course:"FullStack"})
+db.stud.insertOne({sno:113,sname:"a",fees:65000,course:"Django"})
+db.stud.insertOne({sno:114,sname:"b",fees:45000,course:"Node"})
+db.stud.insertOne({sno:115,sname:"c",fees:65000,course:"Flutter"})
+db.stud.insertOne({sno:116,sname:"d",fees:25000,course:"Python"})
 {
         "acknowledged" : true,
         "insertedId" : ObjectId("61efad80e88d73f5a4ca784f")
@@ -126,3 +132,27 @@ db.collection.findOne() --->To get one document
 > db.stud.find()
 
 > db.employees.find().pretty()
+
+------------------------------------------------------------------------
+
+ db.stud.find({fees:3500});
+
+ db.test.insertMany([
+ {name:"Any", age:"21", status:"busy"},
+ {name:"Tony", age:"25", status:"busy"},
+ {name:"Bobby", age:"28", status:"online"},
+ {name:"Sonny", age:"28", status:"away"},
+ {name:"Cher", age:"20", status:"online"}
+])
+
+
+db.test.find({}).skip(3)
+
+db.test.find({}).sort({ "name" : -1})
+
+db.test.find({}).count()
+
+------------------------------------------------------------------------
+db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000}}) 
+
+db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000,ref:"google"}}) 
