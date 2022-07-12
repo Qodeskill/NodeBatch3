@@ -151,8 +151,147 @@ db.test.find({}).skip(3)
 db.test.find({}).sort({ "name" : -1})
 
 db.test.find({}).count()
+------------------------------------------------------------------------
+db.collection.drop()
+db.students.drop()
 
+db.dropDatabase()
 ------------------------------------------------------------------------
 db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000}}) 
 
 db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000,ref:"google"}}) 
+
+-------------------------------------------------------------------------
+
+> db.books.find({"author.profile.courses": 2}).pretty()
+ db.books.find({tags: "programming"}).pretty()
+-------------------------------------------------------------------------
+ObjectId:
+---------
+For every document, MongoDB Server will associate a unique id, which
+is nothing but ObjectId.
+It is something like primary key in relational databases.
+The ObjectId will be assigned to _id field.
+"_id" : ObjectId("5fe6ad34b195d71b16a713c8")
+
+ObjectId is not json type and it is of BSON type.
+ObjectId is of 12 bytes.
+
+1. The first 4 bytes represents the timestamp when this document was
+inserted.
+2. The next 3 bytes represents machine identifier( host name)
+3. The next 2 bytes represents process id.
+4. The last 3 bytes represents some random increment value.
+
+ db.stud.find()[0]._id
+
+
+------------------------------------------------------------------------------
+1. Comparison Query Operators:
+------------------------------
+$eq, $ne, $gt, $gte, $lt, $lte, $in, $nin
+$eq ---> Equality:
+------------------
+The $eq operator matches documents where the value of the field is
+equal to specified value.
+
+Syntax: db.collection.find({ field: {$eq: value} })
+It is exactly same as
+db.collection.find({field: value}) ==>It is the short cut way
+
+Case-1: Equals to Specific Value:
+---------------------------------
+Q. Select all documents from books collection, where no_of_reviews
+is 3.
+> db.books.find({ no_of_reviews: { $eq: 3}}).pretty()
+> db.books.find({ no_of_reviews: 3}).pretty()
+Case-2: Field in Nested Document equals a value
+
+-------------------------------------------------
+
+Q. Select all documents from the books collection where author
+profile contains 2 courses?
+> db.books.find({"author.profile.courses": {$eq: 2}}).pretty()
+> db.books.find({"author.profile.courses": 2}).pretty()
+Case-3: Array element equals a value:
+
+-------------------------------------
+Q1. Read all documents from the books collection where 'tags' array
+contains 'database' element?
+> db.books.find({tags: {$eq: "database"}}).pretty()
+> db.books.find({tags: "database"}).pretty()
+Case-4: Equals Array Value directly:
+
+-------------------------------------
+
+Q. Select all documents from books collection where tags array is
+exactly equal to ["language","freeware","programming"].
+> db.books.find({tags: {$eq:
+["language","freeware","programming"]}}).pretty()
+> db.books.find({tags: ["language","freeware","programming"]}).pretty()
+$ne operator:
+
+-------------
+
+ne ---> means not equal
+We can use $ne operator to select all the documents where the value
+of the field is not equal to specified value.
+Syntax: db.collection.find({filed: {$ne: value}})
+Q. To select all documents from books collection where no_of_reviews
+is not equal to 3.
+> db.books.find({no_of_reviews: {$ne: 3}}).pretty()
+Note: If the specified field not available, such documents also will be
+included in the result.
+$gt operator:
+
+-------------
+
+$gt ---> means greater than
+We can use $gt operator to select all documents where the value of
+field is greater than specified value.
+Syntax: db.collection.find({field: {$gt: value}})
+Q1. Select all documents from books collection where the
+no_of_reviews is greater than 3.
+> db.books.find({no_of_reviews: {$gt: 3}}).pretty()
+$gte operator:
+
+--------------
+$gte ----> means greater than or equal to
+We can use $gte operator to select all documents where the value of
+field is greater than or equal to specified value.
+Syntax: db.collection.find({field: {$gte: value}})
+Q1. Select all documents from books collection where the
+no_of_reviews is greater than or equal to 3.
+> db.books.find({no_of_reviews: {$gte: 3}}).pretty()
+$lt operator:
+
+-------------
+
+$lt ---> means less than
+We can use $lt operator to select all documents where the value of
+field is less than specified value.
+Syntax: db.collection.find({field: {$lt: value}})
+Q1. Select all documents from books collection where the
+no_of_reviews is less than 3.
+> db.books.find({no_of_reviews: {$lt: 3}}).pretty()
+$lte operator:
+
+-------------
+
+$lte ---> means less than or equal to
+We can use $lte operator to select all documents where the value of
+field is less than or equal to specified value.
+Syntax: db.collection.find({field: {$lte: value}})
+Q1. Select all documents from books collection where the
+no_of_reviews is less than or equal to 3.
+> db.books.find({no_of_reviews: {$lte: 3}}).pretty()
+$in operator:
+
+------------
+We can use $in operator to select all documents where the value of a
+field equals any value in the specified array.
+It is something like python membership operator.
+Syntax: db.collection.find({field: {$in: [value1,value2,...,valueN]}})
+Q1. Select all documents from the books collection where the
+no_of_reviews is 1 or 4 or 5?
+> db.books.find({no_of_reviews: {$in: [1,4,5]}}).pretty()
