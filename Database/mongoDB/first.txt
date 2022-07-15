@@ -190,6 +190,7 @@ inserted.
 1. Comparison Query Operators:
 ------------------------------
 $eq, $ne, $gt, $gte, $lt, $lte, $in, $nin
+
 $eq ---> Equality:
 ------------------
 The $eq operator matches documents where the value of the field is
@@ -226,11 +227,10 @@ Case-4: Equals Array Value directly:
 
 Q. Select all documents from books collection where tags array is
 exactly equal to ["language","freeware","programming"].
-> db.books.find({tags: {$eq:
-["language","freeware","programming"]}}).pretty()
+> db.books.find({tags: {$eq:["language","freeware","programming"]}}).pretty()
 > db.books.find({tags: ["language","freeware","programming"]}).pretty()
-$ne operator:
 
+$ne operator:
 -------------
 
 ne ---> means not equal
@@ -295,3 +295,81 @@ Syntax: db.collection.find({field: {$in: [value1,value2,...,valueN]}})
 Q1. Select all documents from the books collection where the
 no_of_reviews is 1 or 4 or 5?
 > db.books.find({no_of_reviews: {$in: [1,4,5]}}).pretty()
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~15/07/2022~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Logical Query Operators:
+------------------------
+$or, $nor, $and, $not
+
+Logical Query Operators:
+------------------------
+$or, $nor, $and, $not
+
+$or operator:
+-------------
+
+$or performs logical OR operation on an array of two or more
+expressions(conditions) and selects the documents that satisfy
+atleast one of the expression(condition)
+
+Syntax: {$or: [{expression1},{expression1},..{expressionN}]}
+
+Q1. Select all documents where either no_of_reviews >3 or tags array
+contains programming element?
+c1: {no_of_reviews: {$gt: 3}}
+c2: {tags: "programming"}
+
+> db.books.find({$or: [{no_of_reviews: {$gt: 3}}, {tags: "programming"}]}).pretty()
+
+Q2. Select all documents where either no_of_reviews is less than 3 or
+downloadable is true or author profile contains atleast 2 books?
+c1: {no_of_reviews: {$lt: 3}}
+c2: {downloadable: true}
+c3: {"author.profile.books": {$gte: 2}}
+> db.books.find({$or: [{no_of_reviews: {$lt: 3}}, {downloadable: true},{"author.profile.books": {$gte: 2}}]}).pretty()
+
+db.books.find({$or: [{no_of_reviews: {$lt: 3}}, {downloadable: true},{"author.profile.books": {$gte: 2}}]})
+
+$nor operator:
+--------------
+
+It is inverse of $or operator.
+
+$or --->Atleast one condition satisfied
+$nor --->neither condition satisfied i.e all conditions fails
+
+Syntax: {$nor: [{expression1},{expression1},..{expressionN}]}
+$nor performs a logical NOR operation on an array of one or more
+expressions(conditions) and selects the documents that fail all query
+expressions in the array.
+eg:
+c1: { no_of_reviews: {$gt: 3}}
+c2: { downloadable: true}
+
+> db.books.find({$nor: [{ no_of_reviews: {$gt: 3}}, { downloadable:true}]}).pretty()
+It will select all documents where
+1. The no_of_reviews is less than or equal to 3 (i.e not greater than 3)
+AND
+2. downloadable is false
+3. documents does not conain no_of_reviews and downloadable fields
+Note: $or results + $nor results = total no of documents
+> db.books.find({$or: [{ no_of_reviews: {$gt: 3}}, { downloadable:true}]}).count()
+
+> db.books.find({$nor: [{ no_of_reviews: {$gt: 3}}, { downloadable:true}]}).count()
+
+> db.books.find().count()
+
+--------------------------------------------------------------
+$and operator:
+--------------
+$and performs logical AND operation on an array of one or more
+expressions and selects the documents that satisfy all expressions in
+the array. i.e all conditions should be satisfied.
+
+Syntax: {$and: [{expression1},{expression1},..{expressionN}]}
+Q. Select all documents where the no_of_reviews is greater than or
+equals to 3 and downloadable is true?
+c1: {no_of_reviews: {$gte: 3}}
+c2: {downloadable: true}
+
+> db.books.find({$and: [{no_of_reviews: {$gte: 3}}, {downloadable:true}]}).pretty()

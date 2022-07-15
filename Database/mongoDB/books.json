@@ -39,7 +39,6 @@
     "isbn": 1234,
     "downloadable": false,
     "no_of_reviews": 5,
-
     "tags": ["language", "freeware", "programming"],
     "languages": ["english", "hindi", "gujarati"],
     "author": {
