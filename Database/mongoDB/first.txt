@@ -156,10 +156,6 @@ db.collection.drop()
 db.students.drop()
 
 db.dropDatabase()
-------------------------------------------------------------------------
-db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000}}) 
-
-db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000,ref:"google"}}) 
 
 -------------------------------------------------------------------------
 
@@ -373,3 +369,13 @@ c1: {no_of_reviews: {$gte: 3}}
 c2: {downloadable: true}
 
 > db.books.find({$and: [{no_of_reviews: {$gte: 3}}, {downloadable:true}]}).pretty()
+
+------------------------------------------------------------------------
+Update : 
+
+db.books.updateOne({no_of_reviews: 2},{$set: {isbn: 1101}})
+
+
+
+db.books.updateOne({no_of_reviews: 2},{$set: {author.profile.books: 8}}) 
+db.stud.updateOne({sname: 'Sunny'},{$set: {fees: 32000,ref:"google"}}) 
