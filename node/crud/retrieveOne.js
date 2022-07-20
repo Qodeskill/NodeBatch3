@@ -4,13 +4,16 @@ var EmployeesSchema = new mongoose.Schema({
   empid: Number,
   salary: Number,
 });
-var EmployeesModel = mongoose.model("employees", EmployeesSchema);
-mongoose.connect("mongodb://localhost:27017/company");
+var EmployeesModel = mongoose.model("company", EmployeesSchema);
+mongoose.connect("mongodb://localhost/newskill");
+// mongoose.connect(
+//   "mongodb+srv://admin:amdin@cluster0.zqzny.mongodb.net/?retryWrites=true&w=majority"
+// );
 
-EmployeesModel.findOne({ salary: { $gt: 50 } }, afterDataRetrieved);
+EmployeesModel.findOne(afterDataRetrieved);
 function afterDataRetrieved(error, data) {
-  console.log(data);
   if (error == null) {
+    console.log(data);
     console.log(data.empname);
     console.log(data.empid);
     console.log(data.salary);

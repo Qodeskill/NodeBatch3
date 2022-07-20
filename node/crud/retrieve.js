@@ -8,7 +8,7 @@ var StudSchema = new mongoose.Schema({
 var StudentModel = mongoose.model("stud", StudSchema);
 
 mongoose.connect("mongodb://localhost/newskill", {
-  // useNewUrlParser: true,
+  useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 var conn = mongoose.connection;
@@ -20,8 +20,9 @@ conn.on("connected", function () {
 
 StudentModel.find({ fees: { $eq: 35000 } }, afterDataRetrieved);
 function afterDataRetrieved(error, data) {
+  console.log("data : ", data);
+  console.log(error);
   if (error == null) {
-    console.log("data : ", data);
     for (var i = 0; i < data.length; i++) {
       console.log(data[i].sno);
       console.log(data[i].sname);
@@ -30,7 +31,6 @@ function afterDataRetrieved(error, data) {
       console.log("...............");
     }
   } else {
-    console.log(error);
   }
   mongoose.disconnect();
 }
